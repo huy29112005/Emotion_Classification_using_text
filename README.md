@@ -1,42 +1,41 @@
-Emotion Classification using BERT with Custom Backbone
-📌 Project Overview
-This project focuses on identifying human emotions from text using a hybrid deep learning architecture. We utilize BERT (Bidirectional Encoder Representations from Transformers) as a pre-trained backbone for feature extraction and integrate it with a custom-designed neural network head to improve classification performance for specific emotion categories.
+# Emotion Classification using BERT with Custom Backbone
 
-🏗️ Model Architecture
-Unlike standard fine-tuning, this project implements a custom architecture on top of the transformer outputs:
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![Transformers](https://img.shields.io/badge/%F0%9F%A4%97-Transformers-orange)
 
-Pre-trained Backbone: bert-base-uncased serves as the primary feature extractor, providing rich contextual embeddings.
+## 📌 Project Overview
+This project focuses on identifying human emotions from text using a hybrid deep learning architecture. We utilize **BERT (Bidirectional Encoder Representations from Transformers)** as a pre-trained backbone for feature extraction and integrate it with a **custom-designed neural network head** to improve classification performance for specific emotion categories.
 
-Custom Backbone/Head:
 
-Hidden State Selection: (e.g., using the [CLS] token or mean pooling of all tokens).
 
-Custom Layers: Added [e.g., Bi-LSTM, Dropout layers, or Multiple Dense Layers] to better capture the nuances of emotional data.
+## 🏗️ Model Architecture
+Unlike standard fine-tuning, this project implements a custom architecture on top of the transformer outputs to better capture emotional nuances:
 
-Activation: ReLU/GELU with a Final Softmax layer for multi-class classification.
+* **Pre-trained Backbone:** `bert-base-uncased` serves as the primary feature extractor, providing rich contextual embeddings.
+* **Custom Backbone/Head:**
+    * **Hidden State Selection:** Optimized by utilizing the `[CLS]` token output.
+    * **Custom Layers:** Integrated additional Dense layers and Dropout mechanisms to refine the feature space.
+    * **Activation:** ReLU/GELU activation functions with a final **Softmax** layer for multi-class classification.
 
-📊 Dataset
-Source: [(https://www.kaggle.com/datasets/parulpandey/emotion-dataset)]
+## 📊 Dataset
+* **Source:** [Kaggle Emotion Dataset](https://www.kaggle.com/datasets/parulpandey/emotion-dataset)
+* **Categories:** * 0: **Sadness**
+    * 1: **Joy**
+    * 2: **Love**
+    * 3: **Anger**
+    * 4: **Fear**
+    * 5: **Surprise**
+* **Pre-processing:** Tokenization, Padding, and Attention Masking performed via Hugging Face `BertTokenizer`.
 
-Categories: Sadness, Joy, Love, Anger, Fear, Suprise.
+## 🚀 Key Features
+* **Hybrid Approach:** Combines state-of-the-art Transformers with custom architectural tweaks.
+* **Transfer Learning:** Efficiently adapts a massive pre-trained model to a specific niche task.
+* **High Performance:** Optimized to handle informal language, slang, and short-text contexts typical of emotional expression.
 
-Pre-processing: Tokenization, Padding, and Attention Masking performed via Hugging Face BertTokenizer.
+## 🛠️ Installation & Usage
 
-🚀 Key Features
-Hybrid Approach: Combines state-of-the-art Transformers with custom architectural tweaks.
-
-Transfer Learning: Efficiently adapts a massive pre-trained model to a specific niche task.
-
-High Performance: Optimized to handle informal language, slang, and short-text contexts typical of emotional expression.
-
-🛠️ Installation & Usage
-Clone the Repo:
-
-Bash
-git clone https://github.com/your-username/emotion-bert-custom.git
+### 1. Clone the Repo
+```bash
+git clone [https://github.com/your-username/emotion-bert-custom.git](https://github.com/your-username/emotion-bert-custom.git)
 cd emotion-bert-custom
-Install Dependencies:
-
-Bash
-pip install transformers torch pandas scikit-learn
-Run the Project: Open the .ipynb file in Kaggle or Jupyter Notebook and run all cells.
